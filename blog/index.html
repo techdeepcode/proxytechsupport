@@ -1,15 +1,1148 @@
----
-layout: post
-title: Blog
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Blog | Proxy Tech Support</title>
+  <meta name="description" content="Latest articles on IT job support, interview assistance, and real-time project help.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="{{ site.url }}/blog/" />
 
-<h1>Blog</h1>
+  <style>
+    :root {
+      --primary-color: #f38020;
+      --primary-dark: #d56a16;
+      --secondary-color: #0f1c2e;
+      --secondary-light: #1f2d3d;
+      --accent-color: #25d366;
+      --text-dark: #2d3748;
+      --text-light: #718096;
+      --bg-light: #f7fafc;
+      --white: #ffffff;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+      --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+    }
 
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
-      <small> – {{ post.date | date: "%d %b %Y" }}</small>
-    </li>
-  {% endfor %}
-</ul>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      color: var(--text-dark);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .top-header {
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+      color: var(--white);
+      padding: 10px 0;
+      font-size: 0.9rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .top-header a {
+      color: var(--white);
+      margin-right: 15px;
+      text-decoration: none;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      display: inline-block;
+    }
+
+    .top-header a:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    .navbar-dark {
+      background-color: var(--secondary-color) !important;
+      box-shadow: var(--shadow-md);
+      padding: 15px 0;
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      padding: 10px 0;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .navbar-dark .navbar-nav .nav-link {
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+      margin: 0 8px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .navbar-dark .navbar-nav .nav-link::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 50%;
+      background-color: var(--primary-color);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .navbar-dark .navbar-nav .nav-link:hover::after,
+    .navbar-dark .navbar-nav .nav-link.active::after {
+      width: 80%;
+    }
+
+    .navbar-dark .navbar-nav .nav-link.active,
+    .navbar-dark .navbar-nav .nav-link:hover {
+      color: var(--primary-color);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-light) 50%, #2a3f5f 100%);
+      color: var(--white);
+      padding: 120px 0 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.5;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      margin-bottom: 25px;
+      animation: fadeInUp 0.8s ease;
+    }
+
+    .hero .lead {
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      margin-bottom: 15px;
+      opacity: 0.95;
+      animation: fadeInUp 1s ease;
+    }
+
+    .hero .fs-5 {
+      animation: fadeInUp 1.2s ease;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .btn {
+      padding: 12px 30px;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-size: 0.9rem;
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .btn:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .btn-primary {
+      background-color: var(--primary-color);
+      border: none;
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(243, 128, 32, 0.4);
+    }
+
+    .btn-success {
+      background-color: var(--accent-color);
+      border: none;
+      color: var(--white);
+    }
+
+    .btn-success:hover {
+      background-color: #1ebe57;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+    }
+
+    .section-title {
+      font-weight: 800;
+      margin-bottom: 50px;
+      color: var(--secondary-color);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
+      border-radius: 2px;
+    }
+
+    .service-box {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 35px 30px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border-top: 4px solid var(--primary-color);
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-box::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(243, 128, 32, 0.1) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .service-box:hover::before {
+      opacity: 1;
+    }
+
+    .service-box:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-top-color: var(--primary-dark);
+    }
+
+    .service-box>i:first-of-type {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+      display: block;
+      transition: transform 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-box:hover>i:first-of-type {
+      transform: scale(1.1);
+    }
+
+    /* Prevent list item icons from animating */
+    .service-box ul li i {
+      transition: none;
+    }
+
+    .tech-pill {
+      background: linear-gradient(135deg, #f7fafc, #edf2f7);
+      margin: 8px;
+      padding: 12px 20px;
+      border-radius: 50px;
+      display: inline-block;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      font-weight: 600;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+
+    .tech-pill:hover {
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+      color: var(--white);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary-dark);
+    }
+
+    .stat-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: var(--shadow-md);
+      transition: all 0.4s ease;
+      height: 100%;
+      border: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .stat-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .stat-card h3 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 15px;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 35px;
+      box-shadow: var(--shadow-md);
+      height: 100%;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 20px;
+      left: 25px;
+      font-size: 80px;
+      color: var(--primary-color);
+      opacity: 0.2;
+      font-family: Georgia, serif;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .testimonial-card .stars {
+      color: #ffc107;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+
+    .faq-item {
+      background: var(--white);
+      border-radius: 12px;
+      margin-bottom: 15px;
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .faq-item:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .faq-header {
+      padding: 20px 25px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      color: var(--secondary-color);
+      transition: background-color 0.3s ease;
+    }
+
+    .faq-header:hover {
+      background-color: var(--bg-light);
+    }
+
+    .faq-header.active {
+      background-color: var(--primary-color);
+      color: var(--white);
+    }
+
+    .faq-body {
+      padding: 0 25px;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .faq-body.active {
+      padding: 20px 25px;
+      max-height: 500px;
+    }
+
+    .process-step {
+      position: relative;
+      padding: 30px;
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: var(--shadow-md);
+      text-align: center;
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+
+    .process-step:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .process-number {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin: 0 auto 20px;
+      box-shadow: 0 4px 15px rgba(243, 128, 32, 0.3);
+    }
+
+    footer {
+      background: linear-gradient(135deg, var(--secondary-color), var(--secondary-light));
+      color: var(--white);
+      padding: 50px 0 30px;
+    }
+
+    .footer-icons a {
+      color: var(--white);
+      margin: 0 12px;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .footer-icons a:hover {
+      color: var(--primary-color);
+      transform: translateY(-5px) scale(1.2);
+    }
+
+    .trust-badge {
+      background: var(--white);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .trust-badge:hover {
+      transform: scale(1.05);
+      box-shadow: var(--shadow-md);
+    }
+
+    .trust-badge i {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+
+    .bg-section {
+      background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+    }
+
+    .cta-section {
+      background: linear-gradient(135deg, var(--secondary-color), var(--secondary-light));
+      color: var(--white);
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(243, 128, 32, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 80px 0 60px;
+      }
+
+      .service-box,
+      .stat-card,
+      .testimonial-card {
+        margin-bottom: 20px;
+      }
+    }
+
+    /* Loading animation */
+    .fade-in {
+      animation: fadeIn 0.6s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Smooth reveal on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Direct Job Support Highlight */
+    .direct-support-box {
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+      color: var(--white);
+      border-top: 4px solid rgba(255, 255, 255, 0.3);
+      padding: 40px 35px !important;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .direct-support-box::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .direct-support-box:hover::after {
+      opacity: 1;
+    }
+
+    .direct-support-box:hover {
+      border-top-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .direct-support-box h5,
+    .direct-support-box p,
+    .direct-support-box ul li {
+      color: var(--white);
+      position: relative;
+      z-index: 1;
+    }
+
+    .direct-support-box .badge {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+      color: var(--white);
+      padding: 8px 16px;
+      border-radius: 25px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .direct-support-box .fa-users-cog {
+      font-size: 4rem !important;
+      color: rgba(255, 255, 255, 0.95) !important;
+      display: block;
+      transition: transform 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .direct-support-box:hover .fa-users-cog {
+      transform: scale(1.05);
+    }
+
+    .direct-support-box ul {
+      position: relative;
+      z-index: 1;
+    }
+
+    .direct-support-box ul li {
+      padding: 8px 0;
+      font-size: 1rem;
+    }
+
+    .direct-support-box ul li i {
+      color: rgba(255, 255, 255, 0.9);
+      transition: none;
+    }
+
+    /* WhatsApp Chat Widget - Positioned on LEFT side */
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 100px;
+      left: 20px;
+      right: auto;
+      background-color: #25d366;
+      color: var(--white);
+      border-radius: 50px;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+      z-index: 998;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .whatsapp-float:hover {
+      background-color: #1ebe57;
+      transform: scale(1.1);
+      box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+      color: var(--white);
+    }
+
+    /* Tawk.to will load on RIGHT side */
+    #tawkchat-container {
+      z-index: 999;
+    }
+
+    /* Force Tawk.to to appear on right side */
+    #tawkchat-iframe-container,
+    #tawkchat-minified-wrapper {
+      left: auto !important;
+      right: 0 !important;
+    }
+
+    /* Tawk.to bubble button on right */
+    #tawkchat-container iframe,
+    #tawkchat-container>div {
+      right: 0 !important;
+      left: auto !important;
+    }
+
+    @media (max-width: 768px) {
+      .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        bottom: 90px;
+        left: 15px;
+        right: auto;
+        font-size: 28px;
+      }
+    }
+
+    /* Engagement Modal Popup */
+    .engagement-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(5px);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .engagement-modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .engagement-modal {
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+      border-radius: 24px;
+      padding: 0;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      transform: scale(0.8) translateY(50px);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .engagement-modal-overlay.active .engagement-modal {
+      transform: scale(1) translateY(0);
+    }
+
+    .engagement-modal::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary-color), var(--primary-dark), var(--accent-color));
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.05);
+      border: none;
+      color: var(--text-dark);
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+
+    .modal-close-btn:hover {
+      background: rgba(0, 0, 0, 0.1);
+      transform: rotate(90deg);
+    }
+
+    .modal-content {
+      padding: 40px 35px 35px;
+      text-align: center;
+    }
+
+    .modal-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--accent-color), #1ebe57);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 25px;
+      font-size: 40px;
+      color: white;
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    .modal-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--secondary-color);
+      margin-bottom: 15px;
+      line-height: 1.3;
+    }
+
+    .modal-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      margin-bottom: 10px;
+    }
+
+    .modal-offer {
+      background: linear-gradient(135deg, rgba(243, 128, 32, 0.1), rgba(243, 128, 32, 0.05));
+      border-left: 4px solid var(--primary-color);
+      padding: 15px 20px;
+      margin: 25px 0;
+      border-radius: 8px;
+      text-align: left;
+    }
+
+    .modal-offer strong {
+      color: var(--primary-color);
+      font-size: 1.1rem;
+    }
+
+    .modal-cta-btn {
+      width: 100%;
+      padding: 16px 30px;
+      background: linear-gradient(135deg, var(--accent-color), #1ebe57);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+      margin-top: 25px;
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    }
+
+    .modal-cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(37, 211, 102, 0.5);
+    }
+
+    .modal-cta-btn i {
+      font-size: 1.4rem;
+    }
+
+    .modal-small-text {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-top: 15px;
+    }
+
+    @media (max-width: 768px) {
+      .engagement-modal {
+        width: 95%;
+        max-width: none;
+      }
+
+      .modal-content {
+        padding: 30px 25px 25px;
+      }
+
+      .modal-title {
+        font-size: 1.5rem;
+      }
+
+      .modal-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 35px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+   <!-- Top Header with Contact -->
+   <div class="top-header">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <a href="tel:+919660614469" class="text-white text-decoration-none"><i class="fas fa-phone-alt me-2"></i>+91
+            96606 14469</a>
+          <span class="ms-4"><i class="fas fa-envelope me-2"></i>support@proxytechsupport.com</span>
+        </div>
+        <div class="col-md-6 text-end">
+          <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+          <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand fw-bold d-flex align-items-center" href="#" aria-label="Home">
+        <img src="../../images/logo.png" alt="Proxy Tech Support Logo" height="45" class="me-2" loading="eager" />
+        <span>Job Support & Proxy</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tech">Technologies</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#how-it-works">How It Works</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#testimonials">Testimonials</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/blog/">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#faq">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="py-5 bg-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-9">
+
+          <h1 class="mb-4">Blog</h1>
+          <p class="text-muted mb-5">
+            Insights on IT job support, interview preparation, and real-time project assistance.
+          </p>
+
+          {% for post in site.posts %}
+            <div class="mb-4 p-4 bg-white rounded shadow-sm">
+              <h3 class="mb-2">
+                <a href="{{ post.url }}" class="text-decoration-none">
+                  {{ post.title }}
+                </a>
+              </h3>
+
+              <p class="text-muted small mb-2">
+                <i class="far fa-calendar-alt me-1"></i>
+                {{ post.date | date: "%B %d, %Y" }}
+              </p>
+
+              <p>{{ post.description }}</p>
+
+              <a href="{{ post.url }}" class="btn btn-sm btn-primary">
+                Read More →
+              </a>
+            </div>
+          {% endfor %}
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row mb-4">
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h5 class="fw-bold mb-3">About Us</h5>
+          <p class="text-light">18+ years of experience providing professional job support and interview proxy services
+            for IT professionals worldwide.</p>
+        </div>
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h5 class="fw-bold mb-3">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="#services" class="text-light text-decoration-none">Services</a></li>
+            <li><a href="#tech" class="text-light text-decoration-none">Technologies</a></li>
+            <li><a href="#testimonials" class="text-light text-decoration-none">Testimonials</a></li>
+            <li><a href="#faq" class="text-light text-decoration-none">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5 class="fw-bold mb-3">Contact</h5>
+          <p class="text-light mb-2">
+            <a href="tel:+919660614469" class="text-light text-decoration-none"><i class="fas fa-phone-alt me-2"></i>+91
+              96606 14469</a>
+          </p>
+          <p class="text-light mb-2">
+            <i class="fas fa-envelope me-2"></i>support@proxytechsupport.com
+          </p>
+          <div class="footer-icons mt-3">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i
+                class="fab fa-linkedin"></i></a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i
+                class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i
+                class="fab fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/proxytechjobsupport?igsh=MWM4N2NyM3k4a3Jrag==" target="_blank"
+              rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="bg-light opacity-25" />
+      <div class="text-center pt-3">
+        <p class="mb-0">
+          &copy; 2025 proxytechsupport.com | All Rights Reserved
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Engagement Modal Popup -->
+  <div class="engagement-modal-overlay" id="engagementModal">
+    <div class="engagement-modal">
+      <button class="modal-close-btn" onclick="closeEngagementModal()" aria-label="Close">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="modal-content">
+        <div class="modal-icon">
+          <i class="fab fa-whatsapp"></i>
+        </div>
+        <h3 class="modal-title">Need IT Job or Interview Support? We’re Here to Help!</h3>
+        <p class="modal-subtitle">Get instant support for your IT job or interview with our IT job support and interview
+          assistance services</p>
+
+        <div class="modal-offer">
+          <strong>🚀 Quick Start Available</strong><br>
+          Our in-house experts can start guiding you immediately with job support, technical assistance, and interview
+          preparation.
+          No waiting, no delays.
+        </div>
+
+        <a href="https://wa.me/919660614469?text=Hi%2C%20I%20need%20job%20support%20or%20interview%20proxy%20help"
+          class="modal-cta-btn" target="_blank" rel="noopener noreferrer"
+          onclick="closeEngagementModal(); gtag('event', 'whatsapp_click', {'event_category': 'engagement_modal'});">
+          <i class="fab fa-whatsapp"></i>
+          Chat on WhatsApp Now
+        </a>
+
+        <p class="modal-small-text">
+          <i class="fas fa-clock me-1"></i>24/7 Available |
+          <i class="fas fa-shield-alt me-1"></i>Secure & Confidential
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- WhatsApp Float Button -->
+  <a href="https://wa.me/919660614469?text=Hi%2C%20I%20need%20job%20support%20or%20interview%20proxy%20help"
+    class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/693fbaad7bdcd2197d981ebd/1jcgf2e81';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+
+    // Force Tawk.to to appear on right side
+    Tawk_API.onLoad = function () {
+      var tawkContainer = document.getElementById('tawkchat-container');
+      if (tawkContainer) {
+        tawkContainer.style.left = 'auto';
+        tawkContainer.style.right = '0';
+      }
+    };
+
+    // Also check after page load
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        var tawkIframe = document.querySelector('#tawkchat-container iframe');
+        var tawkWrapper = document.querySelector('#tawkchat-iframe-container');
+        if (tawkWrapper) {
+          tawkWrapper.style.left = 'auto';
+          tawkWrapper.style.right = '0';
+        }
+        if (tawkIframe && tawkIframe.parentElement) {
+          tawkIframe.parentElement.style.left = 'auto';
+          tawkIframe.parentElement.style.right = '0';
+        }
+      }, 1000);
+    });
+  </script>
+  <!--End of Tawk.to Script-->
+
+  <script>
+    // Highlight Blog menu on blog pages
+    if (window.location.pathname.startsWith('/blog')) {
+      document.querySelectorAll('.navbar-nav .nav-link')
+        .forEach(link => link.classList.remove('active'));
+  
+      const blogLink = document.querySelector('.navbar-nav .nav-link[href="/blog/"]');
+      if (blogLink) blogLink.classList.add('active');
+    }
+  </script>
+  
+
+</body>
+</html>
