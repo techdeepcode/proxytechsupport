@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: blog
 title: React Interview Proxy – How It Works for US & UK Jobs
 description: Learn how React interview proxy support helps developers crack US and UK interviews with real-time expert assistance.
 ---
