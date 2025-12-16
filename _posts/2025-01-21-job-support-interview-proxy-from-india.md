@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: blog
 title: "Job Support & Interview Proxy Assistance from India for USA, UK & Remote IT Jobs"
 description: "Get expert job support and interview proxy assistance from India for USA, UK and remote IT roles. React, Cloud, .NET, DevOps job support from Hyderabad, Bangalore, Pune, Mumbai and Ahmedabad."
 date: 2025-01-21 10:00:00 +0530
