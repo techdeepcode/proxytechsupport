@@ -1769,12 +1769,22 @@
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+
+        const targetId = this.getAttribute('href');
+        const target = document.querySelector(targetId);
+
         if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
+          // Offset for sticky navbar
+          const yOffset = -90; // adjust based on navbar height
+          const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+          window.scrollTo({
+            top: y,
+            behavior: 'smooth'
           });
+
+          // Update URL hash 🔥 (THIS FIXES YOUR ISSUE)
+          history.pushState(null, '', targetId);
 
           // Update active nav link
           document.querySelectorAll('.nav-link').forEach(link => {
