@@ -169,17 +169,21 @@ We provide **job support and interview assistance** across:
 
 Whether you are working from **Hyderabad, Bangalore, Pune, Mumbai, or Ahmedabad**, we ensure your success in **global IT roles**.
 
----
-
-## Need Immediate Job Support or Interview Assistance?
-
-📞 **WhatsApp:** +91 96606 14469  
-🌐 **Website:** https://proxytechsupport.com  
-
-Start here:  
-👉 [Direct Job Support Services](https://proxytechsupport.com/#services)
 
 ---
+
+### 🚀 Get Instant Job Support or Interview Assistance
+
+If you need **real-time IT job support**, **interview proxy assistance**, or **remote technical guidance** for USA, UK, or global projects, our experts are ready to help you immediately.
+
+👉 **Chat directly with our expert on WhatsApp:**  
+📞 [WhatsApp: +91 96606 14469](https://wa.me/919660614469)
+
+👉 **Visit our official website to explore services:**  
+🌐 [https://proxytechsupport.com](https://proxytechsupport.com)
+
+---
+
 
 ### Final Note
 
