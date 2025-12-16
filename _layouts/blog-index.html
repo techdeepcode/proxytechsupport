@@ -1190,6 +1190,94 @@
       const blogLink = document.querySelector('.navbar-nav .nav-link[href="/blog/"]');
       if (blogLink) blogLink.classList.add('active');
     }
+
+    // Engagement Modal Popup
+    let modalShown = false;
+    let scrollTriggered = false;
+    let timeTriggered = false;
+
+    // Check if modal was shown recently (24 hours)
+    function shouldShowModal() {
+      const lastShown = localStorage.getItem('engagementModalLastShown');
+      if (!lastShown) return true;
+
+      const timeDiff = Date.now() - parseInt(lastShown);
+      const hoursPassed = timeDiff / (1000 * 60 * 60);
+      return hoursPassed >= 24; // Show again after 24 hours
+    }
+
+    function showEngagementModal() {
+      if (modalShown || !shouldShowModal()) return;
+
+      const modal = document.getElementById('engagementModal');
+      if (modal) {
+        modal.classList.add('active');
+        modalShown = true;
+        document.body.style.overflow = 'hidden'; // Prevent background scroll
+
+        // Save timestamp
+        localStorage.setItem('engagementModalLastShown', Date.now().toString());
+
+        // Track event
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'engagement_modal_shown', {
+            'event_category': 'engagement',
+            'event_label': 'modal_displayed'
+          });
+        }
+      }
+    }
+
+    function closeEngagementModal() {
+      const modal = document.getElementById('engagementModal');
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scroll
+      }
+    }
+
+    // Close on overlay click
+    document.addEventListener('click', function (e) {
+      const modal = document.getElementById('engagementModal');
+      if (e.target === modal) {
+        closeEngagementModal();
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        closeEngagementModal();
+      }
+    });
+
+    // Trigger after 5 seconds on page
+    // setTimeout(function () {
+    //   if (!modalShown && shouldShowModal()) {
+    //     timeTriggered = true;
+    //     showEngagementModal();
+    //   }
+    // }, 5000);
+
+    // Trigger on scroll (when user scrolls 10% down)
+    let scrollTriggeredFired = false;
+    window.addEventListener('scroll', function () {
+      if (scrollTriggeredFired || modalShown) return;
+
+      const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+
+      if (scrollPercentage >= 10 && shouldShowModal()) {
+        scrollTriggeredFired = true;
+        scrollTriggered = true;
+
+        // Small delay to not be too aggressive
+        setTimeout(function () {
+          if (!modalShown) {
+            showEngagementModal();
+          }
+        }, 500);
+      }
+    });
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
