@@ -1768,6 +1768,35 @@
     }
 
     // Smooth scroll for anchor links
+    // document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    //   anchor.addEventListener('click', function (e) {
+    //     e.preventDefault();
+
+    //     const targetId = this.getAttribute('href');
+    //     const target = document.querySelector(targetId);
+
+    //     if (target) {
+    //       // Offset for sticky navbar
+    //       const yOffset = -90; // adjust based on navbar height
+    //       const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+    //       window.scrollTo({
+    //         top: y,
+    //         behavior: 'smooth'
+    //       });
+
+    //       // Update URL hash 🔥 (THIS FIXES YOUR ISSUE)
+    //       history.pushState(null, '', targetId);
+
+    //       // Update active nav link
+    //       document.querySelectorAll('.nav-link').forEach(link => {
+    //         link.classList.remove('active');
+    //       });
+    //       this.classList.add('active');
+    //     }
+    //   });
+    // });
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -1776,8 +1805,7 @@
         const target = document.querySelector(targetId);
 
         if (target) {
-          // Offset for sticky navbar
-          const yOffset = -90; // adjust based on navbar height
+          const yOffset = -90;
           const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
           window.scrollTo({
@@ -1785,17 +1813,25 @@
             behavior: 'smooth'
           });
 
-          // Update URL hash 🔥 (THIS FIXES YOUR ISSUE)
           history.pushState(null, '', targetId);
 
-          // Update active nav link
           document.querySelectorAll('.nav-link').forEach(link => {
             link.classList.remove('active');
           });
           this.classList.add('active');
+
+          // ✅ CLOSE MOBILE NAVBAR
+          const navbarCollapse = document.querySelector('.navbar-collapse');
+          if (navbarCollapse.classList.contains('show')) {
+            const bsCollapse =
+              bootstrap.Collapse.getInstance(navbarCollapse) ||
+              new bootstrap.Collapse(navbarCollapse, { toggle: false });
+            bsCollapse.hide();
+          }
         }
       });
     });
+
 
     // Reveal on scroll animation
     const observerOptions = {
