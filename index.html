@@ -75,11 +75,11 @@
 
   <style>
     :root {
-      --primary-color: #f38020;
-      --primary-dark: #d56a16;
-      --secondary-color: #0f1c2e;
-      --secondary-light: #1f2d3d;
-      --accent-color: #25d366;
+      --primary-color: #03624c;
+      --primary-dark: #024d3d;
+      --secondary-color: #030f0f;
+      --secondary-light: #051a1a;
+      --accent-color: #00df82;
       --text-dark: #2d3748;
       --text-light: #718096;
       --bg-light: #f7fafc;
@@ -181,7 +181,7 @@
     }
 
     .hero {
-      background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-light) 50%, #2a3f5f 100%);
+      background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-light) 50%, var(--secondary-light) 100%);
       color: var(--white);
       padding: 120px 0 100px;
       position: relative;
@@ -273,7 +273,7 @@
     .btn-primary:hover {
       background-color: var(--primary-dark);
       transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(243, 128, 32, 0.4);
+      box-shadow: 0 10px 25px rgba(3, 98, 76, 0.4);
     }
 
     .btn-success {
@@ -283,9 +283,9 @@
     }
 
     .btn-success:hover {
-      background-color: #1ebe57;
+      background-color: #00c770;
       transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+      box-shadow: 0 10px 25px rgba(0, 223, 130, 0.4);
     }
 
     .section-title {
@@ -328,7 +328,7 @@
       right: -50%;
       width: 200%;
       height: 200%;
-      background: radial-gradient(circle, rgba(243, 128, 32, 0.1) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(3, 98, 76, 0.1) 0%, transparent 70%);
       opacity: 0;
       transition: opacity 0.4s ease;
     }
@@ -364,16 +364,17 @@
 
     .tech-pill {
       background: linear-gradient(135deg, #f7fafc, #edf2f7);
-      margin: 8px;
-      padding: 12px 20px;
+      margin: 0;
+      padding: 8px 16px;
       border-radius: 50px;
       display: inline-block;
-      font-size: 0.95rem;
+      font-size: 0.875rem;
       color: var(--text-dark);
       font-weight: 600;
       border: 2px solid transparent;
       transition: all 0.3s ease;
       cursor: default;
+      line-height: 1.4;
     }
 
     .tech-pill:hover {
@@ -382,6 +383,48 @@
       transform: translateY(-3px);
       box-shadow: var(--shadow-md);
       border-color: var(--primary-dark);
+    }
+
+    .tech-category {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 20px 18px;
+      margin-bottom: 25px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+      border-top: 3px solid var(--primary-color);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tech-category:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+
+    .tech-category-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #f0f0f0;
+      line-height: 1.3;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tech-category-title i {
+      font-size: 1.1rem;
+      color: var(--primary-color);
+    }
+
+    .tech-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: flex-start;
     }
 
     .stat-card {
@@ -532,7 +575,7 @@
       font-size: 1.8rem;
       font-weight: 800;
       margin: 0 auto 20px;
-      box-shadow: 0 4px 15px rgba(243, 128, 32, 0.3);
+      box-shadow: 0 4px 15px rgba(3, 98, 76, 0.3);
     }
 
     footer {
@@ -593,7 +636,7 @@
       right: -10%;
       width: 600px;
       height: 600px;
-      background: radial-gradient(circle, rgba(243, 128, 32, 0.1) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(3, 98, 76, 0.1) 0%, transparent 70%);
       border-radius: 50%;
     }
 
@@ -727,12 +770,12 @@
       bottom: 100px;
       left: 20px;
       right: auto;
-      background-color: #25d366;
+      background-color: var(--accent-color);
       color: var(--white);
       border-radius: 50px;
       text-align: center;
       font-size: 30px;
-      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+      box-shadow: 0 4px 20px rgba(0, 223, 130, 0.5);
       z-index: 998;
       display: flex;
       align-items: center;
@@ -742,9 +785,9 @@
     }
 
     .whatsapp-float:hover {
-      background-color: #1ebe57;
+      background-color: #00c770;
       transform: scale(1.1);
-      box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+      box-shadow: 0 6px 25px rgba(0, 223, 130, 0.6);
       color: var(--white);
     }
 
@@ -860,7 +903,7 @@
     .modal-icon {
       width: 80px;
       height: 80px;
-      background: linear-gradient(135deg, var(--accent-color), #1ebe57);
+      background: linear-gradient(135deg, var(--accent-color), #00c770);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -868,7 +911,7 @@
       margin: 0 auto 25px;
       font-size: 40px;
       color: white;
-      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 223, 130, 0.3);
       animation: pulse 2s infinite;
     }
 
@@ -899,7 +942,7 @@
     }
 
     .modal-offer {
-      background: linear-gradient(135deg, rgba(243, 128, 32, 0.1), rgba(243, 128, 32, 0.05));
+      background: linear-gradient(135deg, rgba(3, 98, 76, 0.1), rgba(3, 98, 76, 0.05));
       border-left: 4px solid var(--primary-color);
       padding: 15px 20px;
       margin: 25px 0;
@@ -915,7 +958,7 @@
     .modal-cta-btn {
       width: 100%;
       padding: 16px 30px;
-      background: linear-gradient(135deg, var(--accent-color), #1ebe57);
+      background: linear-gradient(135deg, var(--accent-color), #00c770);
       color: white;
       border: none;
       border-radius: 50px;
@@ -928,12 +971,12 @@
       gap: 10px;
       transition: all 0.3s ease;
       margin-top: 25px;
-      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+      box-shadow: 0 8px 25px rgba(0, 223, 130, 0.4);
     }
 
     .modal-cta-btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 12px 35px rgba(37, 211, 102, 0.5);
+      box-shadow: 0 12px 35px rgba(0, 223, 130, 0.5);
     }
 
     .modal-cta-btn i {
@@ -1067,7 +1110,7 @@
           <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
           <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
           <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
-          <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.instagram.com/proxytechjobsupport?igsh=MWM4N2NyM3k4a3Jrag==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
     </div>
@@ -1106,15 +1149,23 @@
               Job Support
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/blog/react-job-support/">React Job Support</a></li>
-              <li><a class="dropdown-item" href="/blog/angular-job-support/">Angular Job Support</a></li>
-              <li><a class="dropdown-item" href="/blog/react-native-job-support/">React Native Job Support</a></li>
-              <li><a class="dropdown-item" href="/blog/node-job-support/">Node.js Job Support</a></li>
-              <li><a class="dropdown-item" href="/blog/java-job-support/">Java Job Support</a></li>
-              <li><a class="dropdown-item" href="/blog/python-job-support/">Python Job Support</a></li>
-              <li><a class="dropdown-item" href="/blog/aws-job-support/">AWS Job Support</a></li>
-              <li><a class="dropdown-item" href="/blog/devops-job-support/">DevOps Job Support</a></li>
-              <li><a class="dropdown-item" href="/blog/dotnet-job-support/">.NET Job Support</a></li>
+              <li><a class="dropdown-item" href="/blog/frontend-fullstack-job-support/"><i class="fas fa-laptop-code me-2"></i>Front-End / Full-Stack Development</a></li>
+              <li><a class="dropdown-item" href="/blog/backend-enterprise-job-support/"><i class="fas fa-server me-2"></i>Backend & Enterprise (.NET + Node)</a></li>
+              <li><a class="dropdown-item" href="/blog/java-technologies-job-support/"><i class="fab fa-java me-2"></i>Java Technology Stack</a></li>
+              <li><a class="dropdown-item" href="/blog/databases-data-platforms-job-support/"><i class="fas fa-database me-2"></i>Databases & Data Platforms</a></li>
+              <li><a class="dropdown-item" href="/blog/cloud-technologies-job-support/"><i class="fas fa-cloud me-2"></i>Cloud Technologies</a></li>
+              <li><a class="dropdown-item" href="/blog/devops-job-support/"><i class="fas fa-cogs me-2"></i>DevOps & Automation</a></li>
+              <li><a class="dropdown-item" href="/blog/testing-quality-engineering-job-support/"><i class="fas fa-vial me-2"></i>Testing & Quality Engineering</a></li>
+              <li><a class="dropdown-item" href="/blog/ai-ml-job-support/"><i class="fas fa-brain me-2"></i>AI / Machine Learning & Data</a></li>
+              <li><a class="dropdown-item" href="/blog/digital-analytics-job-support/"><i class="fas fa-chart-line me-2"></i>Digital Analytics & Marketing Tech</a></li>
+              <li><a class="dropdown-item" href="/blog/cybersecurity-job-support/"><i class="fas fa-shield-alt me-2"></i>Cybersecurity & AppSec</a></li>
+              <li><a class="dropdown-item" href="/blog/react-job-support/"><i class="fab fa-react me-2"></i>React Job Support</a></li>
+              <li><a class="dropdown-item" href="/blog/angular-job-support/"><i class="fab fa-angular me-2"></i>Angular Job Support</a></li>
+              <li><a class="dropdown-item" href="/blog/react-native-job-support/"><i class="fab fa-react me-2"></i>React Native Job Support</a></li>
+              <li><a class="dropdown-item" href="/blog/node-job-support/"><i class="fab fa-node-js me-2"></i>Node.js Job Support</a></li>
+              <li><a class="dropdown-item" href="/blog/python-job-support/"><i class="fab fa-python me-2"></i>Python Job Support</a></li>
+              <li><a class="dropdown-item" href="/blog/aws-job-support/"><i class="fab fa-aws me-2"></i>AWS Job Support</a></li>
+              <li><a class="dropdown-item" href="/blog/dotnet-job-support/"><i class="fab fa-microsoft me-2"></i>.NET Job Support</a></li>
             </ul>
           </li>
 
@@ -1201,44 +1252,182 @@
     <div class="container">
       <h2 class="text-center section-title reveal">Technologies We Support</h2>
       <p class="text-center text-muted mb-5 lead">Expert support across all major IT technologies and frameworks</p>
-      <div class="text-center mt-5 reveal">
-        <div class="tech-pill">React JS</div>
-        <div class="tech-pill">Angular</div>
-        <div class="tech-pill">Vue.js</div>
-        <div class="tech-pill">Lit</div>
-        <div class="tech-pill">Svelte</div>
-        <div class="tech-pill">Stencil JS</div>
-        <div class="tech-pill">Next.js</div>
-        <div class="tech-pill">TypeScript</div>
-        <div class="tech-pill">WPF</div>
-        <div class="tech-pill">.NET Core</div>
-        <div class="tech-pill">ASP.NET</div>
-        <div class="tech-pill">MVC .NET</div>
-        <div class="tech-pill">C# / .NET APIs</div>
-        <div class="tech-pill">Node.js</div>
-        <div class="tech-pill">Express</div>
-        <div class="tech-pill">Nest JS</div>
-        <div class="tech-pill">GraphQL</div>
-        <div class="tech-pill">Python</div>
-        <div class="tech-pill">Java</div>
-        <div class="tech-pill">C++</div>
-        <div class="tech-pill">SQL Server</div>
-        <div class="tech-pill">MySQL</div>
-        <div class="tech-pill">PostgreSQL</div>
-        <div class="tech-pill">MongoDB</div>
-        <div class="tech-pill">DynamoDB</div>
-        <div class="tech-pill">Oracle</div>
-        <div class="tech-pill">Snowflake</div>
-        <div class="tech-pill">AWS</div>
-        <div class="tech-pill">Azure</div>
-        <div class="tech-pill">Terraform</div>
-        <div class="tech-pill">Kafka</div>
-        <div class="tech-pill">Unit Testing</div>
-        <div class="tech-pill">Machine Learning</div>
-        <div class="tech-pill">AI Engineer</div>
-        <div class="tech-pill">Data Science</div>
-        <div class="tech-pill">DevOps</div>
-        <div class="tech-pill">QA / SDET</div>
+      
+      <div class="row g-4 mt-4 align-items-start">
+        <!-- Front-End / Full-Stack Development -->
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="tech-category">
+            <h3 class="tech-category-title"><i class="fas fa-laptop-code"></i> Front-End / Full-Stack Development</h3>
+            <div class="tech-items">
+              <div class="tech-pill">React.js</div>
+              <div class="tech-pill">Angular</div>
+              <div class="tech-pill">Vue.js</div>
+              <div class="tech-pill">Next.js</div>
+              <div class="tech-pill">Svelte</div>
+              <div class="tech-pill">Lit</div>
+              <div class="tech-pill">Stencil JS</div>
+              <div class="tech-pill">TypeScript</div>
+              <div class="tech-pill">JavaScript</div>
+              <div class="tech-pill">HTML5 / CSS3</div>
+              <div class="tech-pill">REST APIs</div>
+              <div class="tech-pill">GraphQL</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Backend & Enterprise (.NET + Node) -->
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="tech-category">
+            <h3 class="tech-category-title"><i class="fas fa-server"></i> Backend & Enterprise (.NET + Node)</h3>
+            <div class="tech-items">
+              <div class="tech-pill">ASP.NET</div>
+              <div class="tech-pill">ASP.NET Core</div>
+              <div class="tech-pill">MVC .NET</div>
+              <div class="tech-pill">WPF</div>
+              <div class="tech-pill">C# / .NET APIs</div>
+              <div class="tech-pill">Node.js</div>
+              <div class="tech-pill">Express.js</div>
+              <div class="tech-pill">NestJS</div>
+              <div class="tech-pill">Microservices Architecture</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Databases & Data Platforms -->
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="tech-category">
+            <h3 class="tech-category-title"><i class="fas fa-database"></i> Databases & Data Platforms</h3>
+            <div class="tech-items">
+              <div class="tech-pill">SQL Server</div>
+              <div class="tech-pill">MySQL</div>
+              <div class="tech-pill">PostgreSQL</div>
+              <div class="tech-pill">Oracle</div>
+              <div class="tech-pill">MongoDB</div>
+              <div class="tech-pill">DynamoDB</div>
+              <div class="tech-pill">Snowflake</div>
+              <div class="tech-pill">Redis</div>
+              <div class="tech-pill">Data Modeling & Optimization</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cloud Technologies -->
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="tech-category">
+            <h3 class="tech-category-title"><i class="fas fa-cloud"></i> Cloud Technologies</h3>
+            <div class="tech-items">
+              <div class="tech-pill">AWS</div>
+              <div class="tech-pill">Microsoft Azure</div>
+              <div class="tech-pill">Google Cloud Platform (GCP)</div>
+              <div class="tech-pill">Serverless (Lambda / Azure Functions / Cloud Functions)</div>
+              <div class="tech-pill">Cloud Architecture & Migration</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DevOps & Automation -->
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="tech-category">
+            <h3 class="tech-category-title"><i class="fas fa-cogs"></i> DevOps & Automation</h3>
+            <div class="tech-items">
+              <div class="tech-pill">Terraform</div>
+              <div class="tech-pill">Docker</div>
+              <div class="tech-pill">Kubernetes</div>
+              <div class="tech-pill">CI/CD Pipelines (GitHub Actions, Azure DevOps, GitLab CI)</div>
+              <div class="tech-pill">Kafka</div>
+              <div class="tech-pill">Infrastructure as Code (IaC)</div>
+              <div class="tech-pill">Monitoring & Logging (Prometheus, Grafana)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testing & Quality Engineering -->
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="tech-category">
+            <h3 class="tech-category-title"><i class="fas fa-vial"></i> Testing & Quality Engineering</h3>
+            <div class="tech-items">
+              <div class="tech-pill">Unit Testing</div>
+              <div class="tech-pill">Integration Testing</div>
+              <div class="tech-pill">Automation Testing</div>
+              <div class="tech-pill">Playwright</div>
+              <div class="tech-pill">Cypress</div>
+              <div class="tech-pill">Selenium</div>
+              <div class="tech-pill">Jest</div>
+              <div class="tech-pill">Postman</div>
+              <div class="tech-pill">API Automation</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI / Machine Learning & Data -->
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="tech-category">
+            <h3 class="tech-category-title"><i class="fas fa-brain"></i> AI / Machine Learning & Data</h3>
+            <div class="tech-items">
+              <div class="tech-pill">AI Engineer</div>
+              <div class="tech-pill">Machine Learning</div>
+              <div class="tech-pill">Data Science</div>
+              <div class="tech-pill">Python</div>
+              <div class="tech-pill">Model Training & Deployment</div>
+              <div class="tech-pill">NLP / LLMs</div>
+              <div class="tech-pill">Predictive Analytics</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Digital Analytics & Marketing Tech -->
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="tech-category">
+            <h3 class="tech-category-title"><i class="fas fa-chart-line"></i> Digital Analytics & Marketing Tech</h3>
+            <div class="tech-items">
+              <div class="tech-pill">Google Analytics (GA4)</div>
+              <div class="tech-pill">Google Tag Manager</div>
+              <div class="tech-pill">Conversion Tracking</div>
+              <div class="tech-pill">Funnel & Event Analytics</div>
+              <div class="tech-pill">Performance Monitoring</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cybersecurity & AppSec -->
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="tech-category">
+            <h3 class="tech-category-title"><i class="fas fa-shield-alt"></i> Cybersecurity & AppSec</h3>
+            <div class="tech-items">
+              <div class="tech-pill">Application Security</div>
+              <div class="tech-pill">API Security</div>
+              <div class="tech-pill">OWASP Top 10</div>
+              <div class="tech-pill">Secure Code Review</div>
+              <div class="tech-pill">Vulnerability Assessment</div>
+              <div class="tech-pill">Cloud Security</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Java Technology Stack -->
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="tech-category">
+            <h3 class="tech-category-title"><i class="fab fa-java"></i> Java Technology Stack</h3>
+            <div class="tech-items">
+              <div class="tech-pill">Core Java (Java 8+)</div>
+              <div class="tech-pill">Spring</div>
+              <div class="tech-pill">Spring Boot</div>
+              <div class="tech-pill">Spring MVC</div>
+              <div class="tech-pill">Spring Security</div>
+              <div class="tech-pill">Spring Cloud</div>
+              <div class="tech-pill">Hibernate / JPA</div>
+              <div class="tech-pill">REST APIs</div>
+              <div class="tech-pill">Microservices Architecture</div>
+              <div class="tech-pill">Kafka / RabbitMQ</div>
+              <div class="tech-pill">Maven / Gradle</div>
+              <div class="tech-pill">JUnit / Mockito</div>
+              <div class="tech-pill">JDBC</div>
+              <div class="tech-pill">Docker (Java Apps)</div>
+              <div class="tech-pill">Kubernetes (Spring Boot)</div>
+              <div class="tech-pill">OAuth2 / JWT</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>

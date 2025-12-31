@@ -41,11 +41,11 @@
 
   <style>
     :root {
-      --primary-color: #f38020;
-      --primary-dark: #d56a16;
-      --secondary-color: #0f1c2e;
-      --secondary-light: #1f2d3d;
-      --accent-color: #25d366;
+      --primary-color: #03624c;
+      --primary-dark: #024d3d;
+      --secondary-color: #030f0f;
+      --secondary-light: #051a1a;
+      --accent-color: #00df82;
       --text-dark: #2d3748;
       --text-light: #718096;
       --bg-light: #f7fafc;
@@ -147,7 +147,7 @@
     }
 
     .hero {
-      background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-light) 50%, #2a3f5f 100%);
+      background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-light) 50%, var(--secondary-light) 100%);
       color: var(--white);
       padding: 120px 0 100px;
       position: relative;
@@ -239,7 +239,7 @@
     .btn-primary:hover {
       background-color: var(--primary-dark);
       transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(243, 128, 32, 0.4);
+      box-shadow: 0 10px 25px rgba(3, 98, 76, 0.4);
     }
 
     .btn-success {
@@ -249,9 +249,9 @@
     }
 
     .btn-success:hover {
-      background-color: #1ebe57;
+      background-color: #00c770;
       transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+      box-shadow: 0 10px 25px rgba(0, 223, 130, 0.4);
     }
 
     .section-title {
@@ -294,7 +294,7 @@
       right: -50%;
       width: 200%;
       height: 200%;
-      background: radial-gradient(circle, rgba(243, 128, 32, 0.1) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(3, 98, 76, 0.1) 0%, transparent 70%);
       opacity: 0;
       transition: opacity 0.4s ease;
     }
@@ -498,7 +498,7 @@
       font-size: 1.8rem;
       font-weight: 800;
       margin: 0 auto 20px;
-      box-shadow: 0 4px 15px rgba(243, 128, 32, 0.3);
+      box-shadow: 0 4px 15px rgba(3, 98, 76, 0.3);
     }
 
     footer {
@@ -559,7 +559,7 @@
       right: -10%;
       width: 600px;
       height: 600px;
-      background: radial-gradient(circle, rgba(243, 128, 32, 0.1) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(3, 98, 76, 0.1) 0%, transparent 70%);
       border-radius: 50%;
     }
 
@@ -693,12 +693,12 @@
       bottom: 100px;
       left: 20px;
       right: auto;
-      background-color: #25d366;
+      background-color: var(--accent-color);
       color: var(--white);
       border-radius: 50px;
       text-align: center;
       font-size: 30px;
-      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+      box-shadow: 0 4px 20px rgba(0, 223, 130, 0.5);
       z-index: 998;
       display: flex;
       align-items: center;
@@ -708,9 +708,9 @@
     }
 
     .whatsapp-float:hover {
-      background-color: #1ebe57;
+      background-color: #00c770;
       transform: scale(1.1);
-      box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+      box-shadow: 0 6px 25px rgba(0, 223, 130, 0.6);
       color: var(--white);
     }
 
@@ -826,7 +826,7 @@
     .modal-icon {
       width: 80px;
       height: 80px;
-      background: linear-gradient(135deg, var(--accent-color), #1ebe57);
+      background: linear-gradient(135deg, var(--accent-color), #00c770);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -834,7 +834,7 @@
       margin: 0 auto 25px;
       font-size: 40px;
       color: white;
-      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 223, 130, 0.3);
       animation: pulse 2s infinite;
     }
 
@@ -865,7 +865,7 @@
     }
 
     .modal-offer {
-      background: linear-gradient(135deg, rgba(243, 128, 32, 0.1), rgba(243, 128, 32, 0.05));
+      background: linear-gradient(135deg, rgba(3, 98, 76, 0.1), rgba(3, 98, 76, 0.05));
       border-left: 4px solid var(--primary-color);
       padding: 15px 20px;
       margin: 25px 0;
@@ -881,7 +881,7 @@
     .modal-cta-btn {
       width: 100%;
       padding: 16px 30px;
-      background: linear-gradient(135deg, var(--accent-color), #1ebe57);
+      background: linear-gradient(135deg, var(--accent-color), #00c770);
       color: white;
       border: none;
       border-radius: 50px;
@@ -894,12 +894,12 @@
       gap: 10px;
       transition: all 0.3s ease;
       margin-top: 25px;
-      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+      box-shadow: 0 8px 25px rgba(0, 223, 130, 0.4);
     }
 
     .modal-cta-btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 12px 35px rgba(37, 211, 102, 0.5);
+      box-shadow: 0 12px 35px rgba(0, 223, 130, 0.5);
     }
 
     .modal-cta-btn i {
@@ -950,7 +950,7 @@
           <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
           <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
           <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
-          <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.instagram.com/proxytechjobsupport?igsh=MWM4N2NyM3k4a3Jrag==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
     </div>
@@ -989,15 +989,23 @@
               Job Support
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/blog/react-job-support/">React Job Support</a></li>
-              <li><a class="dropdown-item" href="/blog/angular-job-support/">Angular Job Support</a></li>
-              <li><a class="dropdown-item" href="/blog/react-native-job-support/">React Native Job Support</a></li>
-              <li><a class="dropdown-item" href="/blog/node-job-support/">Node.js Job Support</a></li>
-              <li><a class="dropdown-item" href="/blog/java-job-support/">Java Job Support</a></li>
-              <li><a class="dropdown-item" href="/blog/python-job-support/">Python Job Support</a></li>
-              <li><a class="dropdown-item" href="/blog/aws-job-support/">AWS Job Support</a></li>
-              <li><a class="dropdown-item" href="/blog/devops-job-support/">DevOps Job Support</a></li>
-              <li><a class="dropdown-item" href="/blog/dotnet-job-support/">.NET Job Support</a></li>
+              <li><a class="dropdown-item" href="/blog/frontend-fullstack-job-support/"><i class="fas fa-laptop-code me-2"></i>Front-End / Full-Stack Development</a></li>
+              <li><a class="dropdown-item" href="/blog/backend-enterprise-job-support/"><i class="fas fa-server me-2"></i>Backend & Enterprise (.NET + Node)</a></li>
+              <li><a class="dropdown-item" href="/blog/java-technologies-job-support/"><i class="fab fa-java me-2"></i>Java Technology Stack</a></li>
+              <li><a class="dropdown-item" href="/blog/databases-data-platforms-job-support/"><i class="fas fa-database me-2"></i>Databases & Data Platforms</a></li>
+              <li><a class="dropdown-item" href="/blog/cloud-technologies-job-support/"><i class="fas fa-cloud me-2"></i>Cloud Technologies</a></li>
+              <li><a class="dropdown-item" href="/blog/devops-job-support/"><i class="fas fa-cogs me-2"></i>DevOps & Automation</a></li>
+              <li><a class="dropdown-item" href="/blog/testing-quality-engineering-job-support/"><i class="fas fa-vial me-2"></i>Testing & Quality Engineering</a></li>
+              <li><a class="dropdown-item" href="/blog/ai-ml-job-support/"><i class="fas fa-brain me-2"></i>AI / Machine Learning & Data</a></li>
+              <li><a class="dropdown-item" href="/blog/digital-analytics-job-support/"><i class="fas fa-chart-line me-2"></i>Digital Analytics & Marketing Tech</a></li>
+              <li><a class="dropdown-item" href="/blog/cybersecurity-job-support/"><i class="fas fa-shield-alt me-2"></i>Cybersecurity & AppSec</a></li>
+              <li><a class="dropdown-item" href="/blog/react-job-support/"><i class="fab fa-react me-2"></i>React Job Support</a></li>
+              <li><a class="dropdown-item" href="/blog/angular-job-support/"><i class="fab fa-angular me-2"></i>Angular Job Support</a></li>
+              <li><a class="dropdown-item" href="/blog/react-native-job-support/"><i class="fab fa-react me-2"></i>React Native Job Support</a></li>
+              <li><a class="dropdown-item" href="/blog/node-job-support/"><i class="fab fa-node-js me-2"></i>Node.js Job Support</a></li>
+              <li><a class="dropdown-item" href="/blog/python-job-support/"><i class="fab fa-python me-2"></i>Python Job Support</a></li>
+              <li><a class="dropdown-item" href="/blog/aws-job-support/"><i class="fab fa-aws me-2"></i>AWS Job Support</a></li>
+              <li><a class="dropdown-item" href="/blog/dotnet-job-support/"><i class="fab fa-microsoft me-2"></i>.NET Job Support</a></li>
             </ul>
           </li>
           <li class="nav-item">
