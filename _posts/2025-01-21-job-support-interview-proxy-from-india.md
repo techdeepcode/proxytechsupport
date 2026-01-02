@@ -161,7 +161,7 @@ We provide **job support and interview assistance** across:
 
 ## Why Choose Proxy Tech Support?
 
-✔ 18+ years of industry experience  
+✔ Years of industry experience  
 ✔ Experts with real production exposure  
 ✔ Global client project support  
 ✔ USA & UK interview assistance  
