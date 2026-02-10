@@ -387,7 +387,8 @@
             Real interview questions and answers to prepare for IT job interviews. Learn from real-world scenarios.
           </p>
 
-          {% for post in site.interviews | sort: "date" | reverse %}
+          {% assign sorted_interviews = site.interviews | sort: "date" | reverse %}
+          {% for post in sorted_interviews %}
           <div class="mb-4 p-4 bg-white rounded shadow-sm">
             <h3 class="mb-2">
               <a href="{{ post.url }}" class="text-decoration-none">
@@ -400,7 +401,7 @@
               {{ post.date | date: "%B %d, %Y" }}
             </p>
 
-            <p>{{ post.intro }}</p>
+            <p>{{ post.description | default: post.intro }}</p>
 
             <a href="{{ post.url }}" class="btn btn-sm btn-primary">
               Read More →
