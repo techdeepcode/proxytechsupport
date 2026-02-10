@@ -142,6 +142,37 @@
       color: var(--primary-color);
     }
 
+    /* CTA Button Style for Job Support */
+    .nav-link-cta {
+      background-color: var(--primary-color) !important;
+      color: var(--white) !important;
+      border-radius: 25px;
+      padding: 8px 18px !important;
+      margin-left: 10px;
+      margin-right: 5px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link-cta::after {
+      display: none;
+    }
+
+    .nav-link-cta:hover {
+      background-color: var(--primary-dark) !important;
+      color: var(--white) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(3, 98, 76, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      .nav-link-cta {
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+    }
+
     .hero {
       background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-light) 50%, var(--secondary-light) 100%);
       color: var(--white);
@@ -965,25 +996,13 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav align-items-center">
           <li class="nav-item">
-            <a class="nav-link active" href="../../#home">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../../#tech">Technologies</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../../#services">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../../#how-it-works">How It Works</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../../#testimonials">Testimonials</a>
+            <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-              Job Support
+            <a class="nav-link nav-link-cta dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+              <i class="fas fa-briefcase me-1"></i>Job Support
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="/blog/frontend-fullstack-job-support/"><i class="fas fa-laptop-code me-2"></i>Front-End / Full-Stack Development</a></li>
@@ -1005,15 +1024,20 @@
               <li><a class="dropdown-item" href="/blog/dotnet-job-support/"><i class="fab fa-microsoft me-2"></i>.NET Job Support</a></li>
             </ul>
           </li>
-
           <li class="nav-item">
-            <a class="nav-link" href="../../blog/">Blog</a>
+            <a class="nav-link" href="/interviews/">Interview Questions</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../../#faq">FAQ</a>
+            <a class="nav-link" href="/#tech">Technologies</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../../#contact">Contact</a>
+            <a class="nav-link" href="/#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/blog/">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/#contact">Contact</a>
           </li>
         </ul>
       </div>
