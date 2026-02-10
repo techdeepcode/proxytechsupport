@@ -5,5 +5,10 @@ url: https://proxytechsupport.com
 markdown: kramdown
 permalink: /blog/:title/
 
+collections:
+  interviews:
+    output: true
+    permalink: /interviews/:name/
+
 plugins:
   - jekyll-sitemap
