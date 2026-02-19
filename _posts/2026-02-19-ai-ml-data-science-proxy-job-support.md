@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: blog
 title: "AI & Machine Learning Data Science — Proxy & Job Support"
 date: 2026-02-19 09:00:00 +0000
 categories: [ai, machine-learning, data-science, job-support, proxy]
