@@ -279,7 +279,7 @@ The ABAP driver program collects business data and passes it to the Adobe form i
 
 ---
 
-# 16. Did you work on OTC process in PepsiCo?
+# 16. Did you work on OTC process in your projects?
 
 Yes.
 
@@ -393,6 +393,54 @@ service instances are provisioned
 then bound to applications
 
 Binding allows applications to access credentials and connection configurations.
+
+---
+
+# 25. When integrating SAP with a third-party SaaS system that performs calculations, where should the calculation logic reside?
+
+In enterprise architectures the calculation logic should remain in the **third-party SaaS system** because that system owns the business rules for the calculation.
+
+SAP acts as the transactional system that:
+
+sends required input data  
+receives calculated values  
+applies results to SAP business documents
+
+This design keeps systems loosely coupled and avoids frequent SAP code changes when SaaS algorithms change.
+
+---
+
+# 26. Where should mapping logic between SAP and third-party SaaS payload be implemented?
+
+Mapping logic is usually implemented in the **integration layer** such as:
+
+SAP CPI (Integration Suite)  
+SAP PI/PO  
+SAP BTP integration flows
+
+Middleware handles:
+
+payload transformation  
+protocol conversion  
+field mapping between SAP and external systems
+
+In small integrations mapping can be done directly in **ABAP programs**, but enterprise systems typically manage mappings in middleware.
+
+---
+
+# 27. How do you map calculated values returned from the SaaS system back into SAP?
+
+When SAP receives the response payload (usually JSON or XML), the ABAP program parses the response and extracts the calculated values.
+
+These values are then populated into appropriate SAP structures depending on the business process.
+
+For example:
+
+pricing conditions in sales order  
+document fields during transaction processing  
+custom fields in SAP tables
+
+The values are updated before the transaction is saved so that SAP documents reflect the calculated results from the external system.
 
 ---
 
