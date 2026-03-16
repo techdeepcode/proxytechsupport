@@ -10,6 +10,7 @@
   <meta name="description" content="{{ page.description }}">
   <meta name="author" content="Proxy Tech Support" />
   <meta name="robots" content="index, follow" />
+  {% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}
   <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
 
   <!-- Open Graph -->
@@ -1057,6 +1058,13 @@
           <div class="list-group shadow-sm">
 
             <div class="list-group-item fw-bold text-white bg-dark">
+              Career Support Services
+            </div>
+
+            <a href="/blog/resume-linkedin-optimization-for-developers/" class="list-group-item"><i class="fas fa-file-alt me-2"></i>Resume & LinkedIn Optimization</a>
+            <a href="/blog/interview-mentoring-for-it-professionals/" class="list-group-item"><i class="fas fa-comments me-2"></i>Interview Mentoring</a>
+
+            <div class="list-group-item fw-bold text-white bg-dark mt-2">
               Job Support by Technology
             </div>
 
@@ -1095,6 +1103,8 @@
             <div id="mobileJobSupportNav" class="collapse d-lg-none mb-4">
               <div class="list-group shadow-sm">
 
+                <a href="/blog/resume-linkedin-optimization-for-developers/" class="list-group-item"><i class="fas fa-file-alt me-2"></i>Resume & LinkedIn Optimization</a>
+                <a href="/blog/interview-mentoring-for-it-professionals/" class="list-group-item"><i class="fas fa-comments me-2"></i>Interview Mentoring</a>
                 <a href="/blog/frontend-fullstack-job-support/" class="list-group-item"><i class="fas fa-laptop-code me-2"></i>Front-End / Full-Stack Development</a>
                 <a href="/blog/backend-enterprise-job-support/" class="list-group-item"><i class="fas fa-server me-2"></i>Backend & Enterprise (.NET + Node)</a>
                 <a href="/blog/java-technologies-job-support/" class="list-group-item"><i class="fab fa-java me-2"></i>Java Technology Stack</a>
